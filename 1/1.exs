@@ -1,4 +1,4 @@
-{:ok, contents} = File.read("1.txt")
+{:ok, contents} = File.read("input.txt")
 
 lines = String.split(contents, "\n", trim: true)
 
