@@ -14,3 +14,12 @@
 1. You can then strip off the beginning and end parts of the string, split by the comma and then multiply the factors
   - In a functional paradigm, this would be done by s sequence of `maps`
 1. Add up all of the results of the multiplication
+
+
+## Part 2
+
+### Method to solve
+
+This will be a very similar method to solve, except I need to also extract the do's and don'ts
+and keep an enable flag when I go to sum. A `reduce` or recursion should be used instead of a straight sum
+to be able to control when summing is enabled or disabled as I iterate through the list.
