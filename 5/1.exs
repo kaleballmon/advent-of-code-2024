@@ -30,8 +30,9 @@ updates =
   String.split(raw_updates, "\n", trim: true)
   |> Enum.map(fn raw_update -> String.split(raw_update, ",", trim: true) end)
 
-answer = FilterGoodUpdates.filter(rules_map, updates)
-|> Enum.map(fn list -> String.to_integer(Enum.at(list, div(length(list), 2))) end)
-|> Enum.sum()
+answer =
+  FilterGoodUpdates.filter(rules_map, updates)
+  |> Enum.map(fn list -> String.to_integer(Enum.at(list, div(length(list), 2))) end)
+  |> Enum.sum()
 
 IO.inspect(answer)
