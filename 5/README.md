@@ -20,3 +20,15 @@ again and sum the middle numbers.
 
 ## Assumptions
 - The count of update numbers in an update will be **odd**, since there  must be an exact center
+
+# Part 2
+
+I can reuse the filter code I have here, except now I only want to find the **bad** udpates.
+
+When I find that bad updates, I need to iterate through each of the update numbers and keep track
+of the indicies of where everything is so that I can swap them out.
+
+I think the best way to swap these out in this functional language would be by keeping a map where the key is the index and the value is the update number.
+
+## Observations on the input
+- There can be any number of bad update number ordering in a given update.
