@@ -42,7 +42,7 @@ defmodule LoopFinder do
       new_seen_locations = MapSet.put(seen_locations, {row_index, column_index, direction})
 
       cond do
-        next_element == "#" || ({next_row_index, next_column_index} == extra_obstruction) ->
+        next_element == "#" || {next_row_index, next_column_index} == extra_obstruction ->
           find(
             map,
             {
@@ -98,8 +98,12 @@ defmodule CountDistinctObstruction do
   def count(map) do
     {_is_loop, path_locations} = LoopFinder.find(map, {})
 
-    paths_no_directions = Enum.map(path_locations, fn {row_index, column_index, _direction} -> {row_index, column_index} end)
-    |> MapSet.new()
+    paths_no_directions =
+      Enum.map(path_locations, fn {row_index, column_index, _direction} ->
+        {row_index, column_index}
+      end)
+      |> MapSet.new()
+
     Enum.count(paths_no_directions, fn location ->
       {loop, _path} = LoopFinder.find(map, location)
       loop
